@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/william/Underwater/joystick_control/usb0'
+let g:netrw_dirhist_2='/home/william/Arduino/libraries/Underwater_IMU/ros_imu'
+let g:netrw_dirhist_3='/home/william/Underwater/joystick_control'
+let g:netrw_dirhist_4='/home/william/Arduino/libraries/Underwater_Motor/.git'
+let g:netrw_dirhist_5='/home/william/Underwater/underwater_ws/src/underwater_robot/.git'
