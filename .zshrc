@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/william/.oh-my-zsh
+export ZSH=/home/william/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -92,29 +92,51 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias opensim='source activate opensim-rl'
-alias robo_ck='export ck_dir=`pwd`;  cd ~/Underwater/underwater_ws; catkin_make; cd $ck_dir'
+alias opensim='miniconda;source activate opensim-rl'
+
 alias cat_ck='export ck_dir=`pwd`;  cd ~/catkin_ws; catkin_make; cd $ck_dir'
-alias build_ros_msg='export ck_dir=`pwd`;  cd ~/; ./build_arduino_msg.sh; cd $ck_dir'
-
-# ros settings 
-source /opt/ros/kinetic/setup.zsh
-source ~/Underwater/underwater_ws/devel/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
-
-# underwater variables
-center_motor='/dev/ttyUSB2'
-motor_1='/dev/ttyUSB0'
-motor_2='/dev/ttyUSB3'
-motor_3='/dev/ttyUSB1'
-
+alias swarm_ck='export ck_dir=`pwd`;  cd ~/swarm-simulator/swarm_simulator; catkin_make; cd $ck_dir'
 
 # tensorflow path
 alias tensorflow2='source /home/william/tensorflow2/bin/activate'
 alias tensorflow3='source /home/william/tensorflow3/bin/activate'
 
 
-# learn to run 
-drl='aswang@isaac.ri.cmu.edu'
+# added by Miniconda2 installer
+alias miniconda='export PATH="/home/william/miniconda2/bin:$PATH"'
+
+
+# To disable Cntrl + s from suspending terminal
+stty -ixon
+
+
+source ~/mybot_ws/devel/setup.zsh
+source ~/ship_ws/devel/setup.zsh
+
+# ros settings 
+source /opt/ros/kinetic/setup.zsh
+source ~/catkin_ws/devel/setup.zsh
+source ~/swarm-simulator/swarm_simulator/devel/setup.zsh
+
+# underwater variables
+export center_motor=/dev/ttyUSB1
+export motor_1=/dev/ttyUSB2
+export motor_2=/dev/ttyUSB3
+export motor_3=/dev/ttyUSB0
+export arduino_lib_path=/home/$USER/Arduino/libraries
+alias robo_ck='export ck_dir=`pwd`;  cd ~/Underwater/underwater_ws; catkin_make; cd $ck_dir'
+alias build_ros_msg='export ck_dir=`pwd`; roscd underwater_robot/utilities; ./build_arduino_msg.sh; cd $ck_dir'
+source ~/Underwater/underwater_ws/devel/setup.zsh
+
+# gazebo plugin reference
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/Underwater/underwater_ws/devel/lib
+
+
+# clean up gazebo resources
+alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient"
+alias killros="killall -9 roscore & killall -9 rosmaster" 
+
+# experiments alias
+alias tank_experiment='f(){~/Underwater/Experiments/tank_experiment.sh $1};cd ~/Underwater/Experiments;f'
 
 

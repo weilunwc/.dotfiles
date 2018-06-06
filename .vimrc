@@ -40,7 +40,7 @@ set number
 set numberwidth=5
 
 " Restrict characters for line
-set textwidth=100
+" set textwidth=100
 
 " Layout related options
 set showcmd
@@ -71,4 +71,8 @@ set laststatus=2
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
-
+" auto set filetype
+autocmd BufNewFile,BufRead *.launch   set syntax=html
+autocmd BufNewFile,BufRead *.urdf   set syntax=html
+autocmd BufNewFile,BufRead *.sdf   set syntax=html
+autocmd BufNewFile,BufRead *.world   set syntax=html
